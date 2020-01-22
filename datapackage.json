@@ -1,0 +1,8 @@
+{
+  "name": "the-henry-hub-gas-prices-reports",
+  "title": "The Henry Hub gas prices from EIA data",
+  "resources": [{
+      "name": "daily-report",
+      "path": "daily_report.csv"
+  }]
+}
