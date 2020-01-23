@@ -1,12 +1,88 @@
 {
-  "name": "the-henry-hub-gas-prices-reports",
-  "title": "The Henry Hub gas prices from EIA data",
-  "resources": [{
-      "name": "daily-report",
-      "path": "daily_report.csv"
-  },
-  {
-      "name": "monthly-report",
-      "path": "monthly_report.csv"
-  }]
+  "name": "data",
+  "title": "Data",
+  "resources": [
+    {
+      "path": "daily_report.csv",
+      "pathType": "local",
+      "name": "daily_report",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-2",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "Price",
+            "type": "number",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    },
+    {
+      "path": "monthly_report.csv",
+      "pathType": "local",
+      "name": "monthly_report",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "ISO-8859-2",
+      "dialect": {
+        "delimiter": ",",
+        "quoteChar": "\""
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "Date",
+            "type": "date",
+            "format": "default"
+          },
+          {
+            "name": "Price",
+            "type": "number",
+            "format": "default"
+          }
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ],
+"views": [
+    {
+      "name": "simple-view-line",
+      "title": "monthly-report-line-graph",
+      "resources": [
+        "monthly_report"
+      ],
+      "specType": "simple",
+      "spec": {
+        "type": "line",
+        "group": "Date",
+        "series": [
+          "Price"
+        ]
+      }
+    }
+  ],
+  "licenses": [
+    {
+      "name": "ODC-PDDL",
+      "path": "http://opendatacommons.org/licenses/pddl/",
+      "title": "Open Data Commons Public Domain Dedication and License"
+    }
+  ]
 }
